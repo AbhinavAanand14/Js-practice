@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Mini Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+    .output {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Mini Projects</h1>
+
+  <!-- Reverse String -->
+  <div class="section">
+    <h2>Reverse String</h2>
+    <input id="reverseInput" type="text" placeholder="Enter text">
+    <button onclick="reverseString()">Reverse</button>
+    <div class="output" id="reverseOutput"></div>
+  </div>
+
+  <!-- Even or Odd -->
+  <div class="section">
+    <h2>Even or Odd</h2>
+    <input id="evenOddInput" type="number" placeholder="Enter number">
+    <button onclick="checkEvenOdd()">Check</button>
+    <div class="output" id="evenOddOutput"></div>
+  </div>
+
+  <!-- Vowel Counter -->
+  <div class="section">
+    <h2>Vowel Counter</h2>
+    <input id="vowelInput" type="text" placeholder="Enter text">
+    <button onclick="countVowels()">Count</button>
+    <div class="output" id="vowelOutput"></div>
+  </div>
+
+  <!-- Factorial -->
+  <div class="section">
+    <h2>Factorial</h2>
+    <input id="factorialInput" type="number" placeholder="Enter number">
+    <button onclick="findFactorial()">Find</button>
+    <div class="output" id="factorialOutput"></div>
+  </div>
+
+  <!-- Sum of Digits -->
+  <div class="section">
+    <h2>Sum of Digits</h2>
+    <input id="sumDigitsInput" type="number" placeholder="Enter number">
+    <button onclick="sumOfDigits()">Sum</button>
+    <div class="output" id="sumDigitsOutput"></div>
+  </div>
+
+  <!-- Armstrong Number -->
+  <div class="section">
+    <h2>Armstrong Number</h2>
+    <input id="armstrongInput" type="number" placeholder="Enter number">
+    <button onclick="checkArmstrong()">Check</button>
+    <div class="output" id="armstrongOutput"></div>
+  </div>
+
+  <script>
+    function reverseString() {
+      const str = document.getElementById('reverseInput').value;
+      document.getElementById('reverseOutput').innerText = str.split('').reverse().join('');
+    }
+
+    function checkEvenOdd() {
+      const num = parseInt(document.getElementById('evenOddInput').value);
+      document.getElementById('evenOddOutput').innerText = num % 2 === 0 ? 'Even' : 'Odd';
+    }
+
+    function countVowels() {
+      const str = document.getElementById('vowelInput').value.toLowerCase();
+      const count = (str.match(/[aeiou]/g) || []).length;
+      document.getElementById('vowelOutput').innerText = `Vowel Count: ${count}`;
+    }
+
+    function findFactorial() {
+      let n = parseInt(document.getElementById('factorialInput').value);
+      let result = 1;
+      for (let i = 2; i <= n; i++) result *= i;
+      document.getElementById('factorialOutput').innerText = `Factorial: ${result}`;
+    }
+
+    function sumOfDigits() {
+      const num = document.getElementById('sumDigitsInput').value;
+      let sum = 0;
+      for (let digit of num) sum += parseInt(digit);
+      document.getElementById('sumDigitsOutput').innerText = `Sum: ${sum}`;
+    }
+
+    function checkArmstrong() {
+      const num = document.getElementById('armstrongInput').value;
+      const len = num.length;
+      let sum = 0;
+      for (let digit of num) sum += Math.pow(parseInt(digit), len);
+      const result = sum == num ? 'Armstrong Number' : 'Not Armstrong';
+      document.getElementById('armstrongOutput').innerText = result;
+    }
+  </script>
+</body>
+</html>
